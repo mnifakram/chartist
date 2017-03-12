@@ -47,8 +47,11 @@ export default {
   },
 
   watch: {
-    data (val) {
-      this.$nextTick(() => this.chart.update())
+    data:{
+      deep: true,
+      handler(val, oldVal){
+        this.$nextTick(() => this.chart.update())
+      }
     }
   }
 }
